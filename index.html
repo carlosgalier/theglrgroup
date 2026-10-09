@@ -337,6 +337,19 @@ footer{padding-block:72px 40px}
 (function(){
   var root=document.documentElement;
 
+  // in-page links: scroll without adding #section to the URL
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href').slice(1),t=id?document.getElementById(id):null;
+      e.preventDefault();
+      if(!t||id==='topo'){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});}
+      else{var y=t.getBoundingClientRect().top+window.pageYOffset-90;window.scrollTo({top:y,behavior:reduce?'auto':'smooth'});}
+      if(location.hash){try{history.replaceState(null,'',location.pathname+location.search);}catch(err){}}
+    });
+  });
+  if(location.hash){try{history.replaceState(null,'',location.pathname+location.search);}catch(err){}}
+
   // copy e-mail
   var cp=document.getElementById('copy'),out=document.getElementById('copied');
   cp.addEventListener('click',function(){
