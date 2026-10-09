@@ -125,8 +125,22 @@ section.block{padding-block:120px 40px}
 .mini{display:flex;align-items:flex-end;gap:10px;height:150px;padding:18px;border-radius:18px;background:rgba(0,0,0,.25);box-shadow:inset 0 0 0 1px var(--border)}
 .mini span{flex:1;border-radius:8px 8px 4px 4px;background:linear-gradient(180deg,var(--accent-2),var(--accent));opacity:.85;transform-origin:bottom;animation:grow 1.2s cubic-bezier(.2,.8,.2,1) both}
 @keyframes grow{from{transform:scaleY(.15)}}
+.card.half{grid-column:span 3}
 @media (max-width:960px){.card{grid-column:span 3}.card.wide{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:640px){.bento{grid-template-columns:minmax(0,1fr)}.card,.card.wide{grid-column:auto}}
+@media (max-width:640px){.bento{grid-template-columns:minmax(0,1fr)}.card,.card.wide,.card.half{grid-column:auto}}
+/* phone: center content */
+@media (max-width:640px){
+  .card{align-items:center;text-align:center}
+  .card.wide > div{align-items:center}
+  .card .mini{width:100%}
+  .tags{justify-content:center}
+  .about .stack{align-items:center;text-align:center}
+  .brand{align-items:center;text-align:center}
+  .brand img{margin-inline:auto}
+  .brand dl{justify-content:center;text-align:left}
+  .foot{flex-direction:column;justify-content:center;text-align:center}
+  .foot nav{justify-content:center}
+}
 
 .timeline{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
 .timeline::before{content:"";position:absolute;left:12%;right:12%;top:27px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),var(--accent-2),transparent);opacity:.6}
@@ -189,7 +203,6 @@ footer{padding-block:72px 40px}
     <div class="aurora" aria-hidden="true"><i></i><i></i></div>
     <div class="wrap">
       <div class="hero-inner">
-        <span class="pill-label"><b>GLR</b>Marketing de performance com dados</span>
         <h1>Tráfego e tecnologia para <span class="grad">escalar suas vendas</span></h1>
         <p class="lead">A GLR Group planeja, executa e otimiza operações de venda para produtos digitais e físicos, com cada real investido rastreado de ponta a ponta.</p>
         <div class="cta-row">
@@ -246,13 +259,13 @@ footer{padding-block:72px 40px}
           </div>
           <div class="mini" aria-hidden="true"><span style="height:28%;animation-delay:.05s"></span><span style="height:38%;animation-delay:.1s"></span><span style="height:34%;animation-delay:.15s"></span><span style="height:52%;animation-delay:.2s"></span><span style="height:61%;animation-delay:.25s"></span><span style="height:58%;animation-delay:.3s"></span><span style="height:76%;animation-delay:.35s"></span><span style="height:92%;animation-delay:.4s"></span></div>
         </article>
-        <article class="card" style="grid-column:span 3">
+        <article class="card half">
           <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M3 8v8l9 5 9-5V8M12 13v8" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
           <h3>Lançamento e operação de produtos</h3>
           <p>Da construção da oferta à entrega final, estruturamos a operação de produtos digitais e físicos, incluindo logística.</p>
           <div class="tags"><span>Oferta</span><span>Infoprodutos</span><span>Logística</span></div>
         </article>
-        <article class="card" style="grid-column:span 3">
+        <article class="card half">
           <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H11l-5 4v-4H4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 10h8M8 13h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
           <h3>Marketing direto e atendimento</h3>
           <p>Copywriting, funis de venda, automações e pós-venda para converter mais e manter o cliente comprando.</p>
